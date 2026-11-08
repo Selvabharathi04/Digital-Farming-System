@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-cream text-forest font-body antialiased;
+    background-image: radial-gradient(rgba(56, 142, 60, 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl2 border border-sprout/70 bg-white shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-leaf/30 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-forest text-white shadow-soft hover:bg-leaf active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-forest bg-white text-forest hover:bg-sprout/50 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-forest hover:bg-sprout/40;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium;
+  }
+
+  .field {
+    @apply w-full rounded-2xl border-2 border-sprout bg-white px-4 py-3 text-base text-forest outline-none transition focus:border-leaf focus:ring-4 focus:ring-leaf/20;
+  }
+
+  .label {
+    @apply mb-2 block text-sm font-semibold uppercase tracking-wide text-leaf;
+  }
+
+  .section-title {
+    @apply text-xl font-bold text-forest sm:text-2xl;
+  }
+}
+
+/* Leaf pattern used on gradient headers.
+   This rule is emitted after the Tailwind utilities, so it must carry the
+   gradient itself (via the element's own --tw-gradient-stops) or it would
+   replace `bg-gradient-to-*` and leave the header transparent. */
+.leaf-pattern {
+  background-image: radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.16) 0 12px, transparent 13px),
+    radial-gradient(circle at 78% 62%, rgba(255, 255, 255, 0.12) 0 18px, transparent 19px),
+    radial-gradient(circle at 45% 88%, rgba(255, 255, 255, 0.1) 0 10px, transparent 11px),
+    linear-gradient(to bottom right, var(--tw-gradient-stops, #1b5e20, #388e3c));
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8e6c9;
+  border-radius: 999px;
+}
